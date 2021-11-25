@@ -10,23 +10,30 @@ let RUNNING = 1;
 
 while(RUNNING) {
     var ans = prompt.menuChoice();
-    if (ans == 1) {
-        const listTickets = await fetch.getAllTickets();
-        if (Array.isArray(listTickets)) {
-            prompt.printTickets(listTickets);
-        } else {
-            prompt.printError(listTickets);
-        }
-    } else if (ans == 2) {
-        var id = prompt.getTicketID();
-        const listTickets = await fetch.getSingleTicket(id);
-        if (Array.isArray(listTickets)) {
-            prompt.printTickets(listTickets);
-        } else {
-            prompt.printError(listTickets);
-        }
-    } else if (ans == 3) {
-        RUNNING = 0;
-        prompt.printGoodbye();
+    var listTickets;
+    switch(ans) {
+        case '1':
+            listTickets = await fetch.getAllTickets();
+            if (Array.isArray(listTickets)) {
+                prompt.printTickets(listTickets);
+            } else {
+                prompt.printError(listTickets);
+            }
+            break;
+        case '2':
+            var id = prompt.getTicketID();
+            listTickets = await fetch.getSingleTicket(id);
+            if (Array.isArray(listTickets)) {
+                prompt.printTickets(listTickets);
+            } else {
+                prompt.printError(listTickets);
+            }
+            break;
+        case '3':
+            RUNNING = 0;
+            prompt.printGoodbye();
+            break;
+        default:
+            prompt.printError("Invalid command. Please try again.");
     }
 }

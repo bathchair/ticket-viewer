@@ -1,6 +1,6 @@
 import fetch from 'node-fetch';
 import headers from 'fetch-headers';
-import Ticket from './Ticket.js';
+import Ticket from '../Ticket.js';
 import dotenv from 'dotenv';
 dotenv.config();
 

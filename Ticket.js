@@ -1,3 +1,6 @@
+const SUBJLENGTH = 30;
+const TABSPACING = 6;
+
 export default class Ticket {
 
     constructor(ticket) {
@@ -9,8 +12,18 @@ export default class Ticket {
         this.status = ticket.status;
     }
 
+    truncateSubj(subj) {
+        if (subj.length > SUBJLENGTH) {
+            return subj.substring(0, SUBJLENGTH - 3) + "...";
+        } else if (subj.length < SUBJLENGTH - TABSPACING) {
+            return subj + "\t";
+        } else {
+            return subj;
+        }
+    }
+
     getLine() {
-        return this.id + "\t" + this.created_at + "\t" + this.subject + "\t" + this.status
+        return this.id + "\t" + this.created_at + "\t" + this.truncateSubj(this.subject) + "\t" + this.status
     }
 
     getSummary() {

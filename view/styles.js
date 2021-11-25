@@ -18,4 +18,8 @@ export default class Style {
         return chalk.underline(chalk.cyanBright(string));
     }
 
+    error(string) {
+        return chalk.underline(chalk.redBright(string));
+    }
+
 }

@@ -12,11 +12,19 @@ while(RUNNING) {
     var ans = prompt.menuChoice();
     if (ans == 1) {
         const listTickets = await fetch.getAllTickets();
-        prompt.printTickets(listTickets);
+        if (Array.isArray(listTickets)) {
+            prompt.printTickets(listTickets);
+        } else {
+            prompt.printError(listTickets);
+        }
     } else if (ans == 2) {
         var id = prompt.getTicketID();
         const listTickets = await fetch.getSingleTicket(id);
-        prompt.printTickets(listTickets);
+        if (Array.isArray(listTickets)) {
+            prompt.printTickets(listTickets);
+        } else {
+            prompt.printError(listTickets);
+        }
     } else if (ans == 3) {
         RUNNING = 0;
         prompt.printGoodbye();

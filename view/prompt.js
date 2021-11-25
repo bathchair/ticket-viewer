@@ -14,8 +14,8 @@ export default class Prompter {
         console.log(style.greetings("\nGoodbye!\n"));
     }
 
-    style(string) {
-        return chalk.blueBright(string);
+    printError(text) {
+        console.log(style.error(text));
     }
 
     menuChoice() {

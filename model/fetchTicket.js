@@ -1,9 +1,11 @@
 import fetch from 'node-fetch';
 import headers from 'fetch-headers';
 import Ticket from './Ticket.js';
+import dotenv from 'dotenv';
+dotenv.config();
 
 const URL = 'https://zccbathchair.zendesk.com/api/v2/tickets.json';
-const TOKEN = "ZGVhQHVkZWwuZWR1OjZQYXJrV29vamluIQ==";
+const TOKEN = process.env.TOKEN;
 
 const HEADER = new headers();
 HEADER.append('Authorization', 'Basic ' + TOKEN);
@@ -35,7 +37,5 @@ export default class Fetcher {
         listTickets.push(new Ticket(jsonTicket.ticket));
         return listTickets;
     }
-
-
 
 }

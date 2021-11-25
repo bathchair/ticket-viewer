@@ -1,7 +1,7 @@
 {
     "name": "Zendesk-Coding-Challenge-2021",
     "version": "1.0.0",
-    "description": "",
+    "description": "Submission for ZCC 2021 for SWE Intern",
     "type": "module",
     "scripts": {
         "start": "node controller/index.js"

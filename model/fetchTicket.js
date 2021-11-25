@@ -8,7 +8,7 @@ const URL = 'https://zccbathchair.zendesk.com/api/v2/tickets.json';
 const TOKEN = process.env.TOKEN;
 
 const HEADER = new headers();
-HEADER.append('Authorization', 'Basic ' + TOKEN);
+HEADER.append('Authorization', 'Bearer ' + TOKEN);
 
 export default class Fetcher {
 

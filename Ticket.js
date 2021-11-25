@@ -26,16 +26,6 @@ export default class Ticket {
         return this.id + "\t" + this.created_at + "\t" + this.truncateSubj(this.subject) + "\t" + this.status
     }
 
-    getSummary() {
-        const idLine = "ID: " + this.id;
-        const dateLine = "Created Date: " + this.created_at;
-        const subjectLine = "Subject: " + this.subject;
-        const descriptionLine = "Description:\n" + this.description;
-        const priorityLine = "Priority: " + this.priority;
-        const statusLine = "Status: " + this.status;
-        return idLine + "\n" + dateLine + "\n" + subjectLine + "\n" + descriptionLine + "\n" + priorityLine + "\n" + statusLine;
-    }
-
     getID() {
         return this.id;
     }

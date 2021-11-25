@@ -1,6 +1,6 @@
 import fetch from 'node-fetch';
 import headers from 'fetch-headers';
-import readline from 'readline-sync';
+import Ticket from './Ticket.js';
 
 const URL = 'https://zccbathchair.zendesk.com/api/v2/tickets.json';
 const TOKEN = "ZGVhQHVkZWwuZWR1OjZQYXJrV29vamluIQ==";
@@ -8,16 +8,34 @@ const TOKEN = "ZGVhQHVkZWwuZWR1OjZQYXJrV29vamluIQ==";
 const HEADER = new headers();
 HEADER.append('Authorization', 'Basic ' + TOKEN);
 
-//var ans = readline.question("Press 1 to print tickets.\n");
-
 export default class Fetcher {
 
-    printAllTickets() {
-        fetch(URL, {
-            headers: HEADER
-        })
-            .then(response => response.json())
-            .then(json => console.log(json));
+    async fetchRequest(url) {
+        return fetch(url, { headers: HEADER })
+            .then(response => response.json());
     }
+
+    jsonToList(list) {
+        return list.map(obj => {
+            return new Ticket(obj);
+        });
+    }
+
+    async getAllTickets() {
+        var url = URL;
+        const jsonTickets = await this.fetchRequest(url);
+        var listTickets = this.jsonToList(jsonTickets.tickets);
+        return listTickets;
+    }
+
+    async getSingleTicket(id) {
+        var url = `https://zccbathchair.zendesk.com/api/v2/tickets/${id}.json`;
+        const jsonTicket = await this.fetchRequest(url);
+        var listTickets = [];
+        listTickets.push(new Ticket(jsonTicket.ticket));
+        return listTickets;
+    }
+
+
 
 }

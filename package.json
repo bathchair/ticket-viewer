@@ -4,7 +4,8 @@
     "description": "Submission for ZCC 2021 for SWE Intern",
     "type": "module",
     "scripts": {
-        "start": "node controller/index.js"
+        "start": "node src/controller/index.js",
+        "test": "jest --coverage"
     },
     "dependencies": {
         "chalk": "^4.1.2",
@@ -13,5 +14,13 @@
         "modules": "^0.4.0",
         "node-fetch": "^3.1.0",
         "readline-sync": "^1.4.10"
+    },
+    "devDependencies": {
+        "jest": "^27.3.1"
+    },
+    "jest": {
+        "transform": {
+          "^.+\\.[t|j]sx?$": "babel-jest"
+        }
     }
 }

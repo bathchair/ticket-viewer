@@ -34,6 +34,7 @@ Zendesk API Links:
 - [Zendesk Ticket API Documentation](https://developer.zendesk.com/rest_api/docs/core/tickets)
 - [Requests to Zendesk API](https://developer.zendesk.com/documentation/developer-tools/working-with-the-zendesk-apis/making-requests-to-the-zendesk-api/#topic_hdt_nfx_3m)
 - [OAuth Tokens](https://developer.zendesk.com/documentation/ticketing/working-with-oauth/creating-and-using-oauth-tokens-with-the-api/)
+
 CLI Tools:
 - [Chalk - for stylizing and adding color to console](https://github.com/chalk/chalk)
 - [Jest](https://jestjs.io/docs/getting-started)

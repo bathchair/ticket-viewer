@@ -1,6 +1,11 @@
 import Fetcher from '../model/fetchTicket.js';
 import Prompter from '../view/prompt.js';
 
+/* 
+    Starting point - continuously loops through prompt until exited.
+    @Author: Dea Harjianto
+*/
+
 const fetch = new Fetcher();
 const prompt = new Prompter();
 

@@ -1,6 +1,11 @@
 const SUBJLENGTH = 30;
 const TABSPACING = 6;
 
+/* 
+    Ticket class.
+    @Author: Dea Harjianto
+*/
+
 export default class Ticket {
 
     constructor(ticket) {
@@ -12,6 +17,11 @@ export default class Ticket {
         this.status = ticket.status;
     }
 
+    /*
+        Truncates the subject line to fit a specified with
+        Parameters: subject string to be truncated
+        Returns: truncated (or ignored) string
+    */
     truncateSubj(subj) {
         if (subj.length > SUBJLENGTH) {
             return subj.substring(0, SUBJLENGTH - 3) + "...";
@@ -22,10 +32,15 @@ export default class Ticket {
         }
     }
 
+    /*
+        One line summary of ticket.
+        Parameters: none.
+        Returns: string representing one line summary
+    */
     getLine() {
         return this.id + "\t" + this.created_at + "\t" + this.truncateSubj(this.subject) + "\t" + this.status
     }
-
+    
     getID() {
         return this.id;
     }

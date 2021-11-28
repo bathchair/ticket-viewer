@@ -88,7 +88,7 @@ export default class Prompter {
                 console.log(style.greetings("\nWould you like to continue? Press 1 for yes, 2 for no."));
                 var con = readline.question(style.getInput());
                 if (con == 1) {
-                    console.log(style.headers("\n\tID\tCreated Date\t\tSubject\t\t\t\tStatus"));
+                    console.log("\n\t" + style.headers("ID\tCreated Date\t\tSubject\t\t\t\tStatus"));
                     continue;
                 } else {
                     break;

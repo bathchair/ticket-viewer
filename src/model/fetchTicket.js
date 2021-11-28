@@ -78,7 +78,7 @@ export default class Fetcher {
     */
     errorHandle(ticket) {
         var errorText = ticket.error;
-        return "\tERROR: " + errorText;
+        return "ERROR: " + errorText;
     }
 
 }

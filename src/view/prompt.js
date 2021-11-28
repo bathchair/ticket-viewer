@@ -21,7 +21,7 @@ export default class Prompter {
     }
 
     printError(text) {
-        console.log(style.error(text));
+        console.log("\t" + style.error(text));
     }
 
     /*

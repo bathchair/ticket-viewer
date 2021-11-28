@@ -30,7 +30,7 @@ export default class Prompter {
         Returns: user choice (1, 2, 3, etc.)
     */
     menuChoice() {
-        console.log(style.headers("\n\tMENU"));
+        console.log("\n\t" + style.headers("MENU"));
         console.log("\t- 1 to view all tickets\n\t- 2 to view a ticket\n\t- 3 to quit\n");
         return readline.question(style.getInput());
     }
@@ -65,12 +65,12 @@ export default class Prompter {
         Returns: none
     */
     printSummary(ticket) {
-        console.log(style.labels("\n\tID:") + " " + ticket.getID());
-        console.log(style.labels("\tCreated Date:") + " " + ticket.getCreatedAt());
-        console.log(style.labels("\tSubject:") + " " + ticket.getSubject());
-        console.log(style.labels("\tDescription:\n") + ticket.getDescription());
-        console.log(style.labels("\tPriority:") + " " + ticket.getPriority());
-        console.log(style.labels("\tStatus:") + " " + ticket.getStatus());
+        console.log("\n\t" + style.labels("ID:") + " " + ticket.getID());
+        console.log("\t" + style.labels("Created Date:") + " " + ticket.getCreatedAt());
+        console.log("\t" + style.labels("Subject:") + " " + ticket.getSubject());
+        console.log("\t" + style.labels("Description:\n") + ticket.getDescription());
+        console.log("\t" + style.labels("Priority:") + " " + ticket.getPriority());
+        console.log("\t" + style.labels("Status:") + " " + ticket.getStatus());
     }
 
     /*
@@ -80,7 +80,7 @@ export default class Prompter {
     */
     pageThroughTickets(listTickets) {
         let i = 0;
-        console.log(style.headers("\n\tID\tCreated Date\t\tSubject\t\t\t\tStatus"));
+        console.log("\n\t" + style.headers("ID\tCreated Date\t\tSubject\t\t\t\tStatus"));
         for (var ticket of listTickets) {
             console.log("\t" + ticket.getLine());
             i++;
